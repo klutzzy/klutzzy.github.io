@@ -1,4 +1,4 @@
-(async function() {
+
     // Your existing script.js contentj
 
     async function submitAPI() {
@@ -130,10 +130,6 @@
           handleItemClick(count);
         });
 }
-
-    // Call your async function
-    submitAPI().catch((error) => console.error(error));
-})();
 
 
 function checkString(string) {
