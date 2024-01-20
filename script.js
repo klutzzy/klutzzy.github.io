@@ -1,4 +1,4 @@
-function submitAPI() {
+async function submitAPI() {
     dates = []
     ids = []
     apiData = document.getElementById("apiTextArea").value
