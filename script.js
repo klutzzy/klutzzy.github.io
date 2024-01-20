@@ -1,4 +1,7 @@
-async function submitAPI() {
+(function() {
+    // Your existing script.js content
+
+    async function submitAPI() {
     dates = []
     ids = []
     apiData = document.getElementById("apiTextArea").value
@@ -127,6 +130,11 @@ async function submitAPI() {
           handleItemClick(count);
         });
 }
+
+    // Call your async function
+    submitAPI().catch((error) => console.error(error));
+})();
+
 
 function checkString(string) {
   const pattern = /^[A-Za-z]{3}\d{4}$/;
