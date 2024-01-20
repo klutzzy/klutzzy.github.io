@@ -1,5 +1,5 @@
 (async function() {
-    // Your existing script.js content
+    // Your existing script.js contentj
 
     async function submitAPI() {
     dates = []
