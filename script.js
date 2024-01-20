@@ -1,4 +1,4 @@
-(function() {
+(async function() {
     // Your existing script.js content
 
     async function submitAPI() {
