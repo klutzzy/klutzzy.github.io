@@ -11,7 +11,7 @@
     const commaIndex = apiData.indexOf(',');
     url = apiData.slice(0, commaIndex);
     url = url.slice(7, -1);
-    
+    emailSection = url.slice(url.indexOf('%40') - 7, url.indexOf('%40'));
     if (!checkString(emailSection)){
         alert("Invalid!");
         return;
