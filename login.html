@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <p>Inget lösenord just nu</p>
+  <input type="password" id="passwordInput" placeholder="Enter the password">
+  <button onclick="submitPassword()">Login</button>
+  <script>
+    function submitPassword() {
+      const password = document.getElementById("passwordInput").value;
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success && data.admin) {
+          window.location.href = '/admin.html'; // Redirect to the schema.html page on successful login
+        } else if(data.success && !data.admin ) {
+          window.location.href = '/schema.html';
+          
+        } else {
+          alert('Incorrect password. Try again.');
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+    }
+  </script>
+</body>
+</html>
