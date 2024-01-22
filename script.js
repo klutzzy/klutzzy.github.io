@@ -1,7 +1,35 @@
+const express = require('express');
+const session = require('express-session');
+const app = express();
+const port = 3000;
 
-    // Your existing script.js contentj
+app.use(session({
+  secret: 'ironman',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 600000,
+  }
+}));
 
-    async function submitAPI() {
+// Assume you have a server-side endpoint for login that returns a session ID upon successful authentication
+async function submitPassword() {
+  const password = document.getElementById("passwordInput").value;
+  if (password === '') {  //Z5@hT_L
+    req.session.isAuthenticated = true;
+    req.session.isAdmin = false;
+    res.json({ success: true });
+  } else if (password === 'L%k_pR') {
+    req.session.isAuthenticated = true;
+    req.session.isAdmin = true;
+    res.json({ success: true, admin: true });
+  } else {
+    res.json({ success: false });
+  }
+}
+
+
+async function submitAPI() {
     dates = []
     ids = []
     apiData = document.getElementById("apiTextArea").value
