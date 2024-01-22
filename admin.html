@@ -1,0 +1,407 @@
+  <!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="admin.css">
+  <title>Schema Ändrare</title>
+</head>
+<body>
+  <h1>Schema Ändrare( ADMIN )</h1>
+  <button onclick="logout()">Logout</button>
+  <p>Sätt in din workshopBookings API här:</p>
+  <textarea id="apiTextArea"></textarea>
+  <button class="button button1" onclick="submitAPI()">Submit</button>
+  <h1>Lektioner:</h1>
+  <p id="demo">[ CLEAR ALL ]</p>
+  <ol id="itemList" class="item"></ol>
+  <ol id="itemList2" class="item2"></ol>
+  <ol id="itemList3" class="item3"></ol>
+  <ol id="itemList4" class="item4"></ol>
+  <ol id="itemList5" class="item5"></ol>
+  <ol id="peopleList" class="item6"></ol>
+  <button class="button button2" onclick="loadPeople()">Load</button>
+  <p class="dagar måndag">Måndag</p>
+  <p class="dagar tisdag">Tisdag</p>
+  <p class="dagar onsdag">Onsdag</p>
+  <p class="dagar torsdag">Torsdag</p>
+  <p class="dagar fredag">Fredag</p>
+
+  <script> // personer i file.txt
+    
+      function loadPeople() {
+       fetch('/load', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json'
+           }
+         })
+       .then(response => response.json())
+       .then(data => {
+         emails = data.emails;
+         fetches = data.loads;
+         dates = data.datess;
+         console.log(data)
+         peopleList = document.getElementById('peopleList');
+         peopleList.innerHTML = '';
+         emails.forEach((item, count) => {
+           const li = document.createElement("li");
+           let newItem = item.slice(0,7)
+           li.textContent = `${newItem}, ${dates[count]}`;
+           
+           peopleList.appendChild(li);
+
+           function handleItemClick(itemCount) {
+             li.addEventListener("click", async function () {
+               let apiData = fetches[itemCount];
+               let tof = true;
+               
+               fetch('/submit-api', {
+                 method: 'POST',
+                 headers: {
+                   'Content-Type': 'application/json'
+                 },
+                 body: JSON.stringify({ apiData, tof })
+               })
+               .then(response => response.json())
+               .then(data => {
+                 console.log("Received data from the server:", data);
+
+                 dates = data.dates;
+                 ws = data.ids;
+                 bearer=data.bearer;
+                 console.log(bearer)
+                 let itemList = document.getElementById("itemList");
+                 itemList.innerHTML = "";
+                 itemList = document.getElementById("itemList2");
+                 itemList.innerHTML = "";
+                 itemList = document.getElementById("itemList3");
+                 itemList.innerHTML = "";
+                 itemList = document.getElementById("itemList4");
+                 itemList.innerHTML = "";
+                 itemList = document.getElementById("itemList5");
+                 itemList.innerHTML = "";// Clear the list first
+                 // index.js
+
+                 // CLEAR LIST FUNCTION
+                 const clear = document.getElementById("demo");
+                 clear.addEventListener("click", function () {
+                   alert("Cleared!");
+                   itemList.innerHTML = "";
+                   dates.forEach((item, counttt) => {
+                     felix=ws[counttt].split(",")
+
+                     const hello = {
+                         url: "https://app-kedbackend-prod-swe-02.azurewebsites.net/api/batch?clientIdentity=6b14119f-3bf2-4d23-8c49-c4be156f0e13&flags=modtrack",
+                         method: "POST",
+                         headers: {
+                           accept: "application/json",
+                           "accept-language": "en,sv;q=0.9,ko;q=0.8",
+                           authorization: bearer,
+                           "content-type": "application/json",
+                           "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+                           "sec-ch-ua-mobile": "?0",
+                           "sec-ch-ua-platform": "\"Chrome OS\"",
+                           "sec-fetch-dest": "empty",
+                           "sec-fetch-mode": "cors",
+                           "sec-fetch-site": "cross-site",
+                           Referer: "https://ks.kunskapsporten.se/",
+                           "Referrer-Policy": "strict-origin-when-cross-origin"
+                         },
+                         body: JSON.stringify([
+                           { "op": "unlink", "sourceTable": "calendarEvents", "sourceId": felix[0], "targetId": felix[1], "label": "workshopBookings" },
+                           { "op": "delete", "table": "workshopBookings", "id": felix[1] }
+                         ])
+                     }
+                       fetch(hello.url, hello)
+                   })
+                 });
+                 // CLEAR LIST FUNCTION
+
+
+                 dates.forEach((item, count) => {
+
+
+                   const li = document.createElement("li");
+                   if(item.includes("Monday")) {
+                     itemList = document.getElementById("itemList");
+                     let newItem = item.slice(7,-1)
+                     li.textContent = `${newItem} [REMOVE]`;
+                   } else if(item.includes("Tuesday")) {
+                     itemList = document.getElementById("itemList2");
+                     let newItem = item.slice(9,-1)
+                     li.textContent = `${newItem} [REMOVE]`;
+                   } else if(item.includes("Wednesday")) {
+                     itemList = document.getElementById("itemList3");
+                     let newItem = item.slice(11,-1)
+                     li.textContent = `${newItem} [REMOVE]`;
+                   } else if(item.includes("Thursday")) {
+                     itemList = document.getElementById("itemList4");
+                     let newItem = item.slice(10,-1)
+                     li.textContent = `${newItem} [REMOVE]`;
+                   } else if(item.includes("Friday")) {
+                     itemList = document.getElementById("itemList5");
+                     let newItem = item.slice(8,-1)
+                     li.textContent = `${newItem} [REMOVE]`;
+                   }
+
+
+                   itemList.appendChild(li);
+
+                   function handleItemClick(itemCount) {
+                     li.addEventListener("click", async function () {
+                       console.log("Removing from itemList:", itemList);
+                       console.log("Removing item:", li);
+                       if (document.getElementById("itemList").contains(li)) {
+                         document.getElementById("itemList").removeChild(li);
+                       } else if (document.getElementById("itemList2").contains(li)) {
+                         document.getElementById("itemList2").removeChild(li);
+                       } else if (document.getElementById("itemList3").contains(li)) {
+                         document.getElementById("itemList3").removeChild(li);
+                       } else if (document.getElementById("itemList4").contains(li)) {
+                         document.getElementById("itemList4").removeChild(li);
+                       } else if (document.getElementById("itemList5").contains(li)) {
+                         document.getElementById("itemList5").removeChild(li);
+                       }
+                       console.log(itemCount)
+                       alert("You clicked item " + ws[itemCount]);
+
+                       erik = ws[itemCount].split(",");
+                       console.log("erik1: ", erik[0], " erik2: ", erik[1])
+                       const hello = {
+                         url: "https://app-kedbackend-prod-swe-02.azurewebsites.net/api/batch?clientIdentity=6b14119f-3bf2-4d23-8c49-c4be156f0e13&flags=modtrack",
+                         method: "POST",
+                         headers: {
+                           accept: "application/json",
+                           "accept-language": "en,sv;q=0.9,ko;q=0.8",
+                           authorization: bearer,
+                           "content-type": "application/json",
+                           "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+                           "sec-ch-ua-mobile": "?0",
+                           "sec-ch-ua-platform": "\"Chrome OS\"",
+                           "sec-fetch-dest": "empty",
+                           "sec-fetch-mode": "cors",
+                           "sec-fetch-site": "cross-site",
+                           Referer: "https://ks.kunskapsporten.se/",
+                           "Referrer-Policy": "strict-origin-when-cross-origin"
+                         },
+                         body: JSON.stringify([
+                           { "op": "unlink", "sourceTable": "calendarEvents", "sourceId": erik[0], "targetId": erik[1], "label": "workshopBookings" },
+                           { "op": "delete", "table": "workshopBookings", "id": erik[1] }
+                         ])
+                       }
+                       await fetch(hello.url, hello);
+
+                     });
+                   }
+                   handleItemClick(count);
+                 });
+
+               }) // catch error from /submit-api
+               .catch(error => {
+                 alert("Invalid!")
+                 console.error("Error:", error);
+               });
+               
+             })
+           }
+           handleItemClick(count);
+         });
+         
+       
+       })
+       .catch(error => {
+         console.error("Error:", error);
+       });
+     }
+
+      function logout() {
+        fetch('/logout')
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              window.location.href = '/login'; // Redirect to the login page
+            }
+          })
+          .catch(error => {
+            console.error("Error:", error);
+          });
+      }
+
+      function submitAPI() {
+        count=0
+        const apiData = document.getElementById("apiTextArea").value;
+        let tof = false;
+        console.log("Submitting API request...");
+        
+        fetch('/submit-api', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ apiData, tof })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Received data from the server:", data);
+
+          if (data.status == "Invalid email!") {
+            alert("Invalid!");
+            return;
+          } 
+
+          dates = data.dates;
+          ws = data.ids;
+          bearer=data.bearer;
+          console.log(bearer)
+          let itemList = document.getElementById("itemList");
+          itemList.innerHTML = "";
+          itemList = document.getElementById("itemList2");
+          itemList.innerHTML = "";
+          itemList = document.getElementById("itemList3");
+          itemList.innerHTML = "";
+          itemList = document.getElementById("itemList4");
+          itemList.innerHTML = "";
+          itemList = document.getElementById("itemList5");
+          itemList.innerHTML = "";// Clear the list first
+          // index.js
+
+          // CLEAR LIST FUNCTION
+          const clear = document.getElementById("demo");
+          clear.addEventListener("click", function () {
+            alert("Cleared!");
+            itemList.innerHTML = "";
+            dates.forEach((item, counttt) => {
+              felix=ws[counttt].split(",")
+
+              const hello = {
+                  url: "https://app-kedbackend-prod-swe-02.azurewebsites.net/api/batch?clientIdentity=6b14119f-3bf2-4d23-8c49-c4be156f0e13&flags=modtrack",
+                  method: "POST",
+                  headers: {
+                    accept: "application/json",
+                    "accept-language": "en,sv;q=0.9,ko;q=0.8",
+                    authorization: bearer,
+                    "content-type": "application/json",
+                    "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Chrome OS\"",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "cross-site",
+                    Referer: "https://ks.kunskapsporten.se/",
+                    "Referrer-Policy": "strict-origin-when-cross-origin"
+                  },
+                  body: JSON.stringify([
+                    { "op": "unlink", "sourceTable": "calendarEvents", "sourceId": felix[0], "targetId": felix[1], "label": "workshopBookings" },
+                    { "op": "delete", "table": "workshopBookings", "id": felix[1] }
+                  ])
+              }
+                fetch(hello.url, hello)
+            })
+          });
+          // CLEAR LIST FUNCTION
+
+
+          dates.forEach((item, count) => {
+            
+            
+            const li = document.createElement("li");
+            if(item.includes("Monday")) {
+              itemList = document.getElementById("itemList");
+              let newItem = item.slice(7,-1)
+              li.textContent = `${newItem} [REMOVE]`;
+            } else if(item.includes("Tuesday")) {
+              itemList = document.getElementById("itemList2");
+              let newItem = item.slice(9,-1)
+              li.textContent = `${newItem} [REMOVE]`;
+            } else if(item.includes("Wednesday")) {
+              itemList = document.getElementById("itemList3");
+              let newItem = item.slice(11,-1)
+              li.textContent = `${newItem} [REMOVE]`;
+            } else if(item.includes("Thursday")) {
+              itemList = document.getElementById("itemList4");
+              let newItem = item.slice(10,-1)
+              li.textContent = `${newItem} [REMOVE]`;
+            } else if(item.includes("Friday")) {
+              itemList = document.getElementById("itemList5");
+              let newItem = item.slice(8,-1)
+              li.textContent = `${newItem} [REMOVE]`;
+            }
+            
+           
+            itemList.appendChild(li);
+            
+            function handleItemClick(itemCount) {
+              li.addEventListener("click", async function () {
+                console.log("Removing from itemList:", itemList);
+                console.log("Removing item:", li);
+                if (document.getElementById("itemList").contains(li)) {
+                  document.getElementById("itemList").removeChild(li);
+                } else if (document.getElementById("itemList2").contains(li)) {
+                  document.getElementById("itemList2").removeChild(li);
+                } else if (document.getElementById("itemList3").contains(li)) {
+                  document.getElementById("itemList3").removeChild(li);
+                } else if (document.getElementById("itemList4").contains(li)) {
+                  document.getElementById("itemList4").removeChild(li);
+                } else if (document.getElementById("itemList5").contains(li)) {
+                  document.getElementById("itemList5").removeChild(li);
+                }
+                console.log(itemCount)
+                alert("You clicked item " + ws[itemCount]);
+
+                erik = ws[itemCount].split(",");
+                console.log("erik1: ", erik[0], " erik2: ", erik[1])
+                const hello = {
+                  url: "https://app-kedbackend-prod-swe-02.azurewebsites.net/api/batch?clientIdentity=6b14119f-3bf2-4d23-8c49-c4be156f0e13&flags=modtrack",
+                  method: "POST",
+                  headers: {
+                    accept: "application/json",
+                    "accept-language": "en,sv;q=0.9,ko;q=0.8",
+                    authorization: bearer,
+                    "content-type": "application/json",
+                    "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": "\"Chrome OS\"",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "cross-site",
+                    Referer: "https://ks.kunskapsporten.se/",
+                    "Referrer-Policy": "strict-origin-when-cross-origin"
+                  },
+                  body: JSON.stringify([
+                    { "op": "unlink", "sourceTable": "calendarEvents", "sourceId": erik[0], "targetId": erik[1], "label": "workshopBookings" },
+                    { "op": "delete", "table": "workshopBookings", "id": erik[1] }
+                  ])
+                }
+                await fetch(hello.url, hello);
+
+              });
+            }
+            handleItemClick(count);
+          });
+
+        }) // catch error from /submit-api
+        .catch(error => {
+          console.error("Error:", error);
+        });
+      }
+
+      //
+      let inactivityTimeout;
+      const inactivityDuration = 300000; // 10 minutes in milliseconds
+
+      function resetInactivityTimeout() {
+        clearTimeout(inactivityTimeout);
+        inactivityTimeout = setTimeout(() => {
+          logout();
+        }, inactivityDuration);
+      }
+
+      // Add event listeners to reset the timeout on user interaction
+      document.addEventListener('mousemove', resetInactivityTimeout);
+      document.addEventListener('keydown', resetInactivityTimeout);
+
+    
+  </script>
+</body>
+</html>
