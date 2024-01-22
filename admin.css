@@ -1,0 +1,138 @@
+body {
+  background-color: #ffffff;
+}
+
+textarea {
+  width: 300px;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+.button {
+  background-color: #b5b5b5; 
+  border: none;
+}
+.button1 {
+  height: 50px;
+  width: 100px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: absolute;
+  top: 225px;
+}
+
+.button1:hover {
+  background-color: #4a4a4a; 
+}
+
+.button2 {
+  height: 50px;
+  width: 100px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  position: absolute;
+  right: 600px;
+  top: 65px;
+}
+
+
+
+.item {
+  position:absolute;
+  left: 25px;
+  width: 130px;
+  top: 400px;
+  font-size: 16px;
+}
+.item2 {
+  position:absolute;
+  left: 190px;
+  width: 130px;
+  top: 400px;
+  font-size: 16px;
+}
+.item3 {
+  position:absolute;
+  left: 355px;
+  width: 130px;
+  top: 400px;
+  font-size: 16px;
+}
+.item4 {
+  position:absolute;
+  left: 520px;
+  width: 130px;
+  top: 400px;
+  font-size: 16px;
+}
+.item5 {
+  position:absolute;
+  left: 685px;
+  width: 130px;
+  top: 400px;
+  font-size: 16px;
+}
+
+dagar {
+  font-size: 20px;
+}
+
+.måndag {
+  position:absolute;
+  left: 75px;
+  width: 130px;
+  top: 375px;
+  
+}
+
+.tisdag {
+  position:absolute;
+  left: 240px;
+  width: 130px;
+  top: 375px;
+  
+}
+
+.onsdag {
+  position:absolute;
+  left: 405px;
+  width: 130px;
+  top: 375px;
+  
+}
+
+.torsdag {
+  position:absolute;
+  left: 570px;
+  width: 130px;
+  top: 375px;
+}
+
+.fredag {
+  position:absolute;
+  left: 735px;
+  width: 130px;
+  top: 375px;
+}
+
+.item6 {
+  position:absolute;
+  right: 200px;
+  top: 50px;
+}
