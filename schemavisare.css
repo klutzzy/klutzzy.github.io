@@ -5,7 +5,6 @@ body {
 
 /* Add other styles as needed */
 
-
 textarea {
   width: 300px;
   height: 50px;
@@ -38,7 +37,6 @@ textarea {
 
 .container {
   display: flex;
-  
   flex-wrap: wrap; /* Allow items to wrap to the next line if there isn't enough space */
 }
 
@@ -46,6 +44,8 @@ textarea {
   width: 130px;
   font-size: 16px;
   margin-bottom: 10px; /* Add margin between items */
+  padding: 0; /* Remove default padding */
+  list-style-type: none; /* Remove default list styling */
 }
 
 .weekday-container {
@@ -57,6 +57,7 @@ textarea {
 /* Add a common class for weekdays to avoid repetition */
 .weekday {
   font-size: 20px;
+  text-align: center;
 }
 
 .måndag { color: red; } /* Add color styling for Monday as an example */
