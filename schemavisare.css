@@ -44,6 +44,7 @@ textarea {
   width: 130px;
   font-size: 16px;
   margin-bottom: 10px; /* Add margin between items */
+  margin-left: 10px;
   padding: 0; /* Remove default padding */
   list-style-type: none !important; /* Remove default list styling */
 }
