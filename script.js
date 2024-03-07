@@ -202,7 +202,7 @@ function loadSchema(option) {
     let targetStudent = option
     
     
-    jsonData.forEach(item => {
+    jsonData.forEach((item, count) => {
       for (const workshop of item.workshopBookings) {
         if (workshop.studentDisplayName === targetStudent) {
           const epochTimestamp =item.dateTime;
