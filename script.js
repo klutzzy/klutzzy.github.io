@@ -1,4 +1,4 @@
-
+let data;
 
 
 async function submitAPI() {
