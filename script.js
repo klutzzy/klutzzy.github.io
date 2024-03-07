@@ -1,5 +1,5 @@
 
-const fs = require('fs');
+
 
 async function submitAPI() {
     dates = []
@@ -188,10 +188,15 @@ function filterOptions() {
 }
 
 function loadSchema(option) {
-    const jsonString = fs.readFileSync('output.txt', 'utf-8');
+    fetch(choicesFile)
+    .then(response => response.json())
+    .then(data => {
+      
+    })
+    .catch(error => console.error('Error loading choices:', error));
 
 
-    const jsonData = JSON.parse(jsonString);
+    const jsonData = data
     
     let lektioner = []
     let targetStudent = option
