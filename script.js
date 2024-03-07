@@ -1,5 +1,5 @@
 
-
+const fs = require('fs');
 
 async function submitAPI() {
     dates = []
@@ -173,6 +173,7 @@ function selectOption(option) {
   const dropdownSelect = document.querySelector('.dropdown-select');
   dropdownSelect.innerText = option;
   toggleDropdown();
+  loadSchema(option);
 }
 
 function filterOptions() {
@@ -184,6 +185,38 @@ function filterOptions() {
     const optionText = option.innerText.toLowerCase();
     option.style.display = optionText.includes(filter) ? 'block' : 'none';
   });
+}
+
+function loadSchema(option) {
+    const jsonString = fs.readFileSync('output.txt', 'utf-8');
+
+
+    const jsonData = JSON.parse(jsonString);
+    
+    let lektioner = []
+    let targetStudent = option
+    
+    
+    jsonData.forEach(item => {
+      for (const workshop of item.workshopBookings) {
+        if (workshop.studentDisplayName === targetStudent) {
+          const epochTimestamp =item.dateTime;
+          const dateObject = new Date(epochTimestamp)
+    
+    
+            const timeZone = 'Europe/Stockholm'; 
+            const date = new Date(dateObject);
+    
+            const options = { weekday: 'long', timeZone, hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' };
+            formattedDate = date.toLocaleString('en-US', options);;
+          formattedDate = formattedDate.slice(0, -5);
+    
+          lektioner.push([item.name, item.location, formattedDate])
+        }
+      }
+    })
+    
+    console.log(lektioner)
 }
 
 
