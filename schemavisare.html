@@ -1,11 +1,10 @@
 <!-- index.html -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="schemavisare.css">
   <title>Schemavisare</title>
-  
 </head>
 <body>
   <h1>Schemavisare</h1>
@@ -15,17 +14,20 @@
   <button class="button button1" onclick="submitVisare()">Submit</button>
   <strong style="font-size:18px" id="uppdaterad">Senast updaterad:</strong>
   <h1 class="lektioner">Lektioner:</h1>
-  <ol id="itemList" class="item"></ol>
-  <ol id="itemList2" class="item2"></ol>
-  <ol id="itemList3" class="item3"></ol>
-  <ol id="itemList4" class="item4"></ol>
-  <ol id="itemList5" class="item5"></ol>
-  <p class="dagar måndag">Måndag</p>
-  <p class="dagar tisdag">Tisdag</p>
-  <p class="dagar onsdag">Onsdag</p>
-  <p class="dagar torsdag">Torsdag</p>
-  <p class="dagar fredag">Fredag</p>
-  
-  <script src="script.js"></script><
+  <div class="container">
+    <ol id="itemList" class="item"></ol>
+    <ol id="itemList2" class="item2"></ol>
+    <ol id="itemList3" class="item3"></ol>
+    <ol id="itemList4" class="item4"></ol>
+    <ol id="itemList5" class="item5"></ol>
+  </div>
+  <div class="weekday-container">
+    <p class="dagar måndag">Måndag</p>
+    <p class="dagar tisdag">Tisdag</p>
+    <p class="dagar onsdag">Onsdag</p>
+    <p class="dagar torsdag">Torsdag</p>
+    <p class="dagar fredag">Fredag</p>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
