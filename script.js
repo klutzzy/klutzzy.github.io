@@ -186,6 +186,16 @@ function filterOptions() {
 }
 
 function loadSchema(option) {
+    let itemList = document.getElementById("itemList");
+     itemList.innerHTML = "";
+     itemList = document.getElementById("itemList2");
+     itemList.innerHTML = "";
+     itemList = document.getElementById("itemList3");
+     itemList.innerHTML = "";
+     itemList = document.getElementById("itemList4");
+     itemList.innerHTML = "";
+     itemList = document.getElementById("itemList5");
+     itemList.innerHTML = "";
   fetch(inputFile)
     .then(response => response.json())
     .then(data => {
