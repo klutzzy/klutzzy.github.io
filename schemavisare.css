@@ -11,6 +11,7 @@ textarea {
   border-radius: 4px;
   background-color: #f8f8f8;
   font-size: 16px;
+  margin-top: 20px;
 }
 
 .button1 {
@@ -24,7 +25,6 @@ textarea {
   cursor: pointer;
   border-radius: 4px;
   background-color: #b5b5b5;
-  margin-top: -40px;
 }
 
 .button1:hover {
