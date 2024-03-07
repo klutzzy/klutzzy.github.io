@@ -28,10 +28,12 @@
     <p class="dagar torsdag">Torsdag</p>
     <p class="dagar fredag">Fredag</p>
 
-    <!-- Add the dropdown container -->
+    <!-- Add the dropdown container with search input -->
     <div class="dropdown" id="peopleDropdown">
       <div class="dropdown-select" onclick="toggleDropdown()">Select a person</div>
-      <div class="dropdown-options" id="dropdownOptions"></div>
+      <div class="dropdown-options" id="dropdownOptions">
+        <input type="text" class="search-input" placeholder="Search..." oninput="filterOptions()">
+      </div>
     </div>
 
   </div>
