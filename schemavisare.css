@@ -39,16 +39,19 @@ textarea {
 
 .weekday {
   font-size: 20px;
+  position: abosolute;
 }
 
 .container {
   display: flex;
+  position: abosolute;
   justify-content: space-between;
 }
 
 .weekday-container {
   display: flex;
   justify-content: space-around;
+  position: abosolute;
   margin-bottom: 20px;
 }
 
