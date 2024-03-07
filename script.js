@@ -219,23 +219,23 @@ function loadSchema(option) {
           if(date.includes("Monday")) {
             itemList = document.getElementById("itemList");
             let date = item.slice(7,-1)
-            li.textContent = `${newItem} ${ws}`;
+            li.textContent = `${date} ${ws}`;
           } else if(date.includes("Tuesday")) {
             itemList = document.getElementById("itemList2");
             let date = item.slice(9,-1)
-            li.textContent = `${newItem} ${ws}`;
+            li.textContent = `${date} ${ws}`;
           } else if(date.includes("Wednesday")) {
             itemList = document.getElementById("itemList3");
             let date = item.slice(11,-1)
-            li.textContent = `${newItem} ${ws}`;
+            li.textContent = `${date} ${ws}`;
           } else if(date.includes("Thursday")) {
             itemList = document.getElementById("itemList4");
             let date = item.slice(10,-1)
-            li.textContent = `${newItem} ${ws}`;
+            li.textContent = `${date} ${ws}`;
           } else if(date.includes("Friday")) {
             itemList = document.getElementById("itemList5");
             let date = item.slice(8,-1)
-            li.textContent = `${newItem} ${ws}`;
+            li.textContent = `${date} ${ws}`;
           }
 
 
