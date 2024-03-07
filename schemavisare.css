@@ -1,6 +1,10 @@
 body {
   background-color: #ffffff;
+  font-family: Arial, sans-serif; /* Set a common font family for better consistency */
 }
+
+/* Add other styles as needed */
+
 
 textarea {
   width: 300px;
