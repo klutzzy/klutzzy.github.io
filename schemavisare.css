@@ -16,6 +16,11 @@ textarea {
   resize: none;
 }
 
+.class {
+  position: relative;
+  top: 230px;
+}
+
 .button {
   background-color: #b5b5b5; 
   border: none;
