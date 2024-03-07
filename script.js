@@ -1,6 +1,3 @@
-let data;
-
-
 async function submitAPI() {
     dates = []
     ids = []
@@ -188,38 +185,37 @@ function filterOptions() {
 }
 
 function loadSchema(option) {
-    fetch(choicesFile)
+  fetch(choicesFile)
     .then(response => response.json())
     .then(data => {
-      
+      const jsonData = data;
+
+      let lektioner = [];
+      let targetStudent = option;
+
+      jsonData.forEach((item, count) => {
+        for (const workshop of item.workshopBookings) {
+          if (workshop.studentDisplayName === targetStudent) {
+            const epochTimestamp = item.dateTime;
+            const dateObject = new Date(epochTimestamp);
+
+            const timeZone = 'Europe/Stockholm';
+            const date = new Date(dateObject);
+
+            const options = { weekday: 'long', timeZone, hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' };
+            formattedDate = date.toLocaleString('en-US', options);
+            formattedDate = formattedDate.slice(0, -5);
+
+            lektioner.push([item.name, item.location, formattedDate]);
+          }
+        }
+      });
+
+      console.log(lektioner);
     })
     .catch(error => console.error('Error loading choices:', error));
+}
 
-
-    const jsonData = data
-    
-    let lektioner = []
-    let targetStudent = option
-    
-    
-    jsonData.forEach((item, count) => {
-      for (const workshop of item.workshopBookings) {
-        if (workshop.studentDisplayName === targetStudent) {
-          const epochTimestamp =item.dateTime;
-          const dateObject = new Date(epochTimestamp)
-    
-    
-            const timeZone = 'Europe/Stockholm'; 
-            const date = new Date(dateObject);
-    
-            const options = { weekday: 'long', timeZone, hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' };
-            formattedDate = date.toLocaleString('en-US', options);;
-          formattedDate = formattedDate.slice(0, -5);
-    
-          lektioner.push([item.name, item.location, formattedDate])
-        }
-      }
-    })
     
     console.log(lektioner)
 }
