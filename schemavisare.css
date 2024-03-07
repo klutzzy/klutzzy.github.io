@@ -36,28 +36,34 @@ textarea {
   background-color: #4a4a4a;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if there isn't enough space */
+}
+
 .item {
   width: 130px;
   font-size: 16px;
-}
-
-.weekday {
-  font-size: 20px;
-  position: abosolute;
-}
-
-.container {
-  display: flex;
-  position: abosolute;
-  justify-content: space-between;
+  margin-bottom: 10px; /* Add margin between items */
 }
 
 .weekday-container {
   display: flex;
   justify-content: space-around;
-  position: abosolute;
   margin-bottom: 20px;
 }
+
+/* Add a common class for weekdays to avoid repetition */
+.weekday {
+  font-size: 20px;
+}
+
+.måndag { color: red; } /* Add color styling for Monday as an example */
+.tisdag { color: blue; } /* Add color styling for Tuesday as an example */
+.onsdag { color: green; } /* Add color styling for Wednesday as an example */
+.torsdag { color: purple; } /* Add color styling for Thursday as an example */
+.fredag { color: orange; } /* Add color styling for Friday as an example */
 
 .dropdown {
   position: relative;
