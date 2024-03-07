@@ -136,3 +136,43 @@ function checkString(string) {
   const pattern = /^[A-Za-z]{3}\d{4}$/;
   return pattern.test(string);
 }
+
+// script.js
+
+// Assuming choices.json contains an array of choices
+const choicesFile = 'choices.json';
+
+// Function to fetch and load choices from the JSON file
+function loadChoices() {
+  fetch(choicesFile)
+    .then(response => response.json())
+    .then(choices => {
+      // Generate dropdown options
+      const dropdownOptions = document.getElementById('dropdownOptions');
+      choices.forEach(choice => {
+        const option = document.createElement('div');
+        option.className = 'dropdown-option';
+        option.textContent = choice;
+        option.onclick = () => selectOption(choice);
+        dropdownOptions.appendChild(option);
+      });
+    })
+    .catch(error => console.error('Error loading choices:', error));
+}
+
+// Function to toggle dropdown visibility
+function toggleDropdown() {
+  const dropdownOptions = document.getElementById('dropdownOptions');
+  dropdownOptions.style.display = dropdownOptions.style.display === 'none' ? 'block' : 'none';
+}
+
+// Function to select an option
+function selectOption(option) {
+  const dropdownSelect = document.querySelector('.dropdown-select');
+  dropdownSelect.innerText = option;
+  toggleDropdown();
+}
+
+// Load choices when the script is executed
+loadChoices();
+
