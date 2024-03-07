@@ -12,29 +12,37 @@
   <button class="button button1" onclick="submitVisare()">Submit</button>
   <p><span style="font-size:16px"><strong>Senast uppdaterad:</strong></span></p>
   <h1 class="lektioner">Lektioner:</h1>
-  
   <div class="weekday-container">
-    <p class="dagar måndag">Måndag</p>
-    <p class="dagar tisdag">Tisdag</p>
-    <p class="dagar onsdag">Onsdag</p>
-    <p class="dagar torsdag">Torsdag</p>
-    <p class="dagar fredag">Fredag</p>
-
-    <!-- Add the dropdown container with search input -->
-    <div class="dropdown" id="peopleDropdown">
-      <div class="dropdown-select" onclick="toggleDropdown()">Select a person</div>
-      <div class="dropdown-options" id="dropdownOptions">
-        <input type="text" class="search-input" placeholder="Search..." oninput="filterOptions()">
-      </div>
+    <div class="weekday-group">
+      <p class="weekday måndag">Måndag</p>
+      <ul id="itemList" class="item"></ul>
+    </div>
+    <div class="weekday-group">
+      <p class="weekday tisdag">Tisdag</p>
+      <ul id="itemList2" class="item"></ul>
+    </div>
+    <div class="weekday-group">
+      <p class="weekday onsdag">Onsdag</p>
+      <ul id="itemList3" class="item"></ul>
+    </div>
+    <div class="weekday-group">
+      <p class="weekday torsdag">Torsdag</p>
+      <ul id="itemList4" class="item"></ul>
+    </div>
+    <div class="weekday-group">
+      <p class="weekday fredag">Fredag</p>
+      <ul id="itemList5" class="item"></ul>
     </div>
   </div>
-  <div class="container">
-    <ol id="itemList" class="item"></ol>
-    <ol id="itemList2" class="item"></ol>
-    <ol id="itemList3" class="item"></ol>
-    <ol id="itemList4" class="item"></ol>
-    <ol id="itemList5" class="item"></ol>
+
+  <!-- Add the dropdown container with search input -->
+  <div class="dropdown" id="peopleDropdown">
+    <div class="dropdown-select" onclick="toggleDropdown()">Select a person</div>
+    <div class="dropdown-options" id="dropdownOptions">
+      <input type="text" class="search-input" placeholder="Search..." oninput="filterOptions()">
+    </div>
   </div>
+
   <script src="script.js"></script>
   <script src="choices.json"></script> <!-- Include your JSON file -->
 </body>
