@@ -144,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const choicesFile = 'choices.json';
+const inputFile = 'input.json';
 
 function loadChoices() {
   fetch(choicesFile)
@@ -185,7 +186,7 @@ function filterOptions() {
 }
 
 function loadSchema(option) {
-  fetch(choicesFile)
+  fetch(inputFile)
     .then(response => response.json())
     .then(data => {
       const jsonData = data;
