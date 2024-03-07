@@ -16,9 +16,9 @@ textarea {
   resize: none;
 }
 
-.class {
-  position: relative;
-  top: 230px;
+.lektioner {
+  position: absolute;
+  top: 400px;
 }
 
 .button {
