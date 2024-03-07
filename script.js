@@ -216,8 +216,4 @@ function loadSchema(option) {
     .catch(error => console.error('Error loading choices:', error));
 }
 
-    
-    console.log(lektioner)
-}
-
 
