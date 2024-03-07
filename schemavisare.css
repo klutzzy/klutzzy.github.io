@@ -30,7 +30,7 @@ textarea {
   cursor: pointer;
   border-radius: 4px;
   position: absolute;
-  top: 200px;
+  top: 100px;
 }
 
 .button1:hover {
