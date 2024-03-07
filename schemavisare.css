@@ -45,7 +45,7 @@ textarea {
   font-size: 16px;
   margin-bottom: 10px; /* Add margin between items */
   padding: 0; /* Remove default padding */
-  list-style-type: none; /* Remove default list styling */
+  list-style-type: none !important; /* Remove default list styling */
 }
 
 .weekday-container {
