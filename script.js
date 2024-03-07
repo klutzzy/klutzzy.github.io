@@ -213,27 +213,29 @@ function loadSchema(option) {
       });
       lektioner.forEach((itemm,count) => {
           const li = document.createElement("li");
-          let item = itemm[2]
-          if(item.includes("Monday")) {
+          let ws = itemm[0]
+          let rum = item[1]
+          let date = itemm[2]
+          if(date.includes("Monday")) {
             itemList = document.getElementById("itemList");
-            let newItem = item.slice(7,-1)
-            li.textContent = `${newItem} [REMOVE]`;
-          } else if(item.includes("Tuesday")) {
+            let date = item.slice(7,-1)
+            li.textContent = `${newItem} ${ws}`;
+          } else if(date.includes("Tuesday")) {
             itemList = document.getElementById("itemList2");
-            let newItem = item.slice(9,-1)
-            li.textContent = `${newItem} [REMOVE]`;
-          } else if(item.includes("Wednesday")) {
+            let date = item.slice(9,-1)
+            li.textContent = `${newItem} ${ws}`;
+          } else if(date.includes("Wednesday")) {
             itemList = document.getElementById("itemList3");
-            let newItem = item.slice(11,-1)
-            li.textContent = `${newItem} [REMOVE]`;
-          } else if(item.includes("Thursday")) {
+            let date = item.slice(11,-1)
+            li.textContent = `${newItem} ${ws}`;
+          } else if(date.includes("Thursday")) {
             itemList = document.getElementById("itemList4");
-            let newItem = item.slice(10,-1)
-            li.textContent = `${newItem} [REMOVE]`;
-          } else if(item.includes("Friday")) {
+            let date = item.slice(10,-1)
+            li.textContent = `${newItem} ${ws}`;
+          } else if(date.includes("Friday")) {
             itemList = document.getElementById("itemList5");
-            let newItem = item.slice(8,-1)
-            li.textContent = `${newItem} [REMOVE]`;
+            let date = item.slice(8,-1)
+            li.textContent = `${newItem} ${ws}`;
           }
 
 
