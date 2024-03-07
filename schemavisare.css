@@ -45,9 +45,7 @@ textarea {
 }
 
 /* Adjust the position as needed */
-textarea {
-  margin-bottom: 20px;
-}
+
 
 .weekday-container {
   display: flex;
