@@ -27,7 +27,15 @@
     <p class="dagar onsdag">Onsdag</p>
     <p class="dagar torsdag">Torsdag</p>
     <p class="dagar fredag">Fredag</p>
+
+    <!-- Add the dropdown container -->
+    <div class="dropdown" id="peopleDropdown">
+      <div class="dropdown-select" onclick="toggleDropdown()">Select a person</div>
+      <div class="dropdown-options" id="dropdownOptions"></div>
+    </div>
+
   </div>
   <script src="script.js"></script>
+  <script src="choices.json"></script> <!-- Include your JSON file -->
 </body>
 </html>
