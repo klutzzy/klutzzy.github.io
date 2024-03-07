@@ -140,14 +140,18 @@ function checkString(string) {
 // script.js
 
 // Assuming choices.json contains an array of choices
+// script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+  loadChoices();
+});
+
 const choicesFile = 'choices.json';
 
-// Function to fetch and load choices from the JSON file
 function loadChoices() {
   fetch(choicesFile)
     .then(response => response.json())
     .then(choices => {
-      // Generate dropdown options
       const dropdownOptions = document.getElementById('dropdownOptions');
       choices.forEach(choice => {
         const option = document.createElement('div');
@@ -160,19 +164,26 @@ function loadChoices() {
     .catch(error => console.error('Error loading choices:', error));
 }
 
-// Function to toggle dropdown visibility
 function toggleDropdown() {
   const dropdownOptions = document.getElementById('dropdownOptions');
   dropdownOptions.style.display = dropdownOptions.style.display === 'none' ? 'block' : 'none';
 }
 
-// Function to select an option
 function selectOption(option) {
   const dropdownSelect = document.querySelector('.dropdown-select');
   dropdownSelect.innerText = option;
   toggleDropdown();
 }
 
-// Load choices when the script is executed
-loadChoices();
+function filterOptions() {
+  const searchInput = document.querySelector('.search-input');
+  const options = document.querySelectorAll('.dropdown-option');
+  const filter = searchInput.value.toLowerCase();
+
+  options.forEach(option => {
+    const optionText = option.innerText.toLowerCase();
+    option.style.display = optionText.includes(filter) ? 'block' : 'none';
+  });
+}
+
 
