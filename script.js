@@ -214,7 +214,7 @@ function loadSchema(option) {
       lektioner.forEach((itemm,count) => {
           const li = document.createElement("li");
           let ws = itemm[0]
-          let rum = item[1]
+          let rum = itemm[1]
           let date = itemm[2]
           if(date.includes("Monday")) {
             itemList = document.getElementById("itemList");
