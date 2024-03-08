@@ -1,29 +1,23 @@
 // your_script.js
 
-// Initialize the MongoDB Stitch client
-const client = new Stitch.StitchClient('mongodb+srv://eddie:AlbodaVagen37@cluster0.um6b6qq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+const client = new Stitch.Stitch('mongodb+srv://eddie:AlbodaVagen37@cluster0.um6b6qq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 // Connect to MongoDB
-const db = client.service('mongodb', 'mongodb-atlas').db('test');
+const mongodb = client.getServiceClient(Stitch.RemoteMongoClient.factory, 'mongodb-atlas');
+const db = mongodb.db('your-database-name');
 
 // Perform database operations
-// Perform database operations
-client.login().then(() => {
+client.auth.loginWithCredential(new Stitch.AnonymousCredential()).then(() => {
     // Find the first document in a collection
-    db.collection('schema').findOne({})
-        .then(result => {
-            if (result) {
-                console.log('Found document:', result);
-            } else {
-                console.log('Document not found');
-            }
-        })
-        .catch(err => {
-            console.error('Error finding document:', err);
-        });
-})
-.catch(err => {
-    console.error('Error logging in:', err);
+    return db.collection('your-collection-name').findOne({});
+}).then(result => {
+    if (result) {
+        console.log('Found document:', result);
+    } else {
+        console.log('Document not found');
+    }
+}).catch(err => {
+    console.error('Error:', err);
 });
 
 
