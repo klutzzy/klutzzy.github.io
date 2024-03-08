@@ -1,24 +1,3 @@
-// your_script.js
-
-const client = new Stitch.Stitch('mongodb+srv://eddie:AlbodaVagen37@cluster0.um6b6qq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
-
-// Connect to MongoDB
-const mongodb = client.getServiceClient(Stitch.RemoteMongoClient.factory, 'mongodb-atlas');
-const db = mongodb.db('test');
-
-// Perform database operations
-client.auth.loginWithCredential(new Stitch.AnonymousCredential()).then(() => {
-    // Find the first document in a collection
-    return db.collection('schema').findOne({});
-}).then(result => {
-    if (result) {
-        console.log('Found document:', result);
-    } else {
-        console.log('Document not found');
-    }
-}).catch(err => {
-    console.error('Error:', err);
-});
 
 
 async function submitAPI() {
