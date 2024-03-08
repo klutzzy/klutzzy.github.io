@@ -1,7 +1,7 @@
 // your_script.js
 
 // Initialize the MongoDB Stitch client
-const client = new stitch.StitchClient('mongodb+srv://eddie:AlbodaVagen37@cluster0.um6b6qq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+const client = new Stitch.StitchClient('mongodb+srv://eddie:AlbodaVagen37@cluster0.um6b6qq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 // Connect to MongoDB
 const db = client.service('mongodb', 'mongodb-atlas').db('test');
