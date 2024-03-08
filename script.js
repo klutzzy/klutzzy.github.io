@@ -4,12 +4,12 @@ const client = new Stitch.Stitch('mongodb+srv://eddie:AlbodaVagen37@cluster0.um6
 
 // Connect to MongoDB
 const mongodb = client.getServiceClient(Stitch.RemoteMongoClient.factory, 'mongodb-atlas');
-const db = mongodb.db('your-database-name');
+const db = mongodb.db('test');
 
 // Perform database operations
 client.auth.loginWithCredential(new Stitch.AnonymousCredential()).then(() => {
     // Find the first document in a collection
-    return db.collection('your-collection-name').findOne({});
+    return db.collection('schema').findOne({});
 }).then(result => {
     if (result) {
         console.log('Found document:', result);
