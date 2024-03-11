@@ -173,6 +173,14 @@ function loadChoices() {
       schemaaa = data
     document.getElementById("lektion").textContent = "Lektioner " + schemaaa.currentWeek + ":";
     });
+    const date = new Date(schemaaa.updated.updatedDate);
+    const timeZone = 'Europe/Bucharest'
+    date.setMinutes(date.getMinutes() - 60);
+    const options = { weekday: 'long', timeZone, hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' };
+    formattedDate = date.toLocaleString('en-US', options);
+    formattedDate = formattedDate.slice(0, -5);
+    
+    document.getElementById("update").textContent = "Senast uppdaterad " + formattedDate;
 }
 
 function toggleDropdown() {
