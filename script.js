@@ -157,7 +157,7 @@ function loadChoices() {
         console.log(data.currentWeek)
       schemaaa = data
         
-      document.getElementById("lektion").innerHTML = "Lektioner " + data.currentWeek + ":";
+      document.getElementById("lektion").innerText = "Lektioner " + data.currentWeek + ":";
     });
   fetch(choicesFile)
     .then(response => response.json())
