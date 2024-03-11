@@ -286,6 +286,7 @@ function submitVisare() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+      schemaaa = data
     });
    
     
