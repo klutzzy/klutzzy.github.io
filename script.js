@@ -154,8 +154,10 @@ function loadChoices() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+        console.log(data.currentWeek)
       schemaaa = data
-      document.getElementById("lektion").innerHTML = "Lektioner " + schemaaa.currentWeek + ":";
+        
+      document.getElementById("lektion").innerHTML = "Lektioner " + data.currentWeek + ":";
     });
   fetch(choicesFile)
     .then(response => response.json())
