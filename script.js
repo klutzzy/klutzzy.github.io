@@ -272,6 +272,11 @@ function submitVisare() {
    let api = document.getElementById("apiTextArea").value
    api = api.slice(6, -2)
     console.log(api)
+    
+let api = "[" + api + "]";
+
+
+
    api = JSON.parse(api)
    let auth = api.headers.authorization
     console.log(auth)
