@@ -173,7 +173,7 @@ function loadChoices() {
       schemaaa = data
         console.log(schemaaa.updated);
         const date = new Date(schemaaa.updated.updatedDate * 1000);
-    const timeZone = 'Europe/Bucharest'
+    const timeZone = 'Europe/Stockholm'
     date.setMinutes(date.getMinutes() - 60);
     const options = { weekday: 'long', timeZone, hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' };
     formattedDate = date.toLocaleString('en-US', options);
