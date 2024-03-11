@@ -149,16 +149,7 @@ const choicesFile = 'choices.json';
 const inputFile = 'input.json';
 
 function loadChoices() {
-  var url = new URL('https://classy-clever-package.glitch.me/schema')
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-        console.log(data.currentWeek)
-      schemaaa = data
-        
-      document.getElementById("lektion").innerText = "Lektioner " + data.currentWeek + ":";
-    });
+  
   fetch(choicesFile)
     .then(response => response.json())
     .then(choices => {
@@ -172,6 +163,17 @@ function loadChoices() {
       });
     })
     .catch(error => console.error('Error loading choices:', error));
+
+    var url = new URL('https://classy-clever-package.glitch.me/schema')
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+        console.log(data.currentWeek)
+      schemaaa = data
+        
+      document.getElementById("lektion").innerText = "Lektioner " + data.currentWeek + ":";
+    });
 }
 
 function toggleDropdown() {
