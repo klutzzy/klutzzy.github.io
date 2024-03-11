@@ -1,4 +1,4 @@
-
+let schemaaa = "";
 
 async function submitAPI() {
     dates = []
@@ -149,6 +149,14 @@ const choicesFile = 'choices.json';
 const inputFile = 'input.json';
 
 function loadChoices() {
+  var url = new URL('https://classy-clever-package.glitch.me/schema')
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      schemaaa = data
+      document.getElementById("lektion").innerHTML = schema.currentWeek
+    });
   fetch(choicesFile)
     .then(response => response.json())
     .then(choices => {
@@ -198,10 +206,7 @@ function loadSchema(option) {
      itemList.innerHTML = "";
      itemList = document.getElementById("itemList5");
      itemList.innerHTML = "";
-  fetch(inputFile)
-    .then(response => response.json())
-    .then(data => {
-      const jsonData = data;
+      const jsonData = schemaaa
 
       let lektioner = [];
       let targetStudent = option;
@@ -257,8 +262,11 @@ function loadSchema(option) {
      
 
       console.log(lektioner);
-    })
-    .catch(error => console.error('Error loading choices:', error));
+    
+}
+
+function(submitVisare) {
+   
 }
 
 
