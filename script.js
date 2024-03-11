@@ -180,7 +180,7 @@ function loadChoices() {
     formattedDate = formattedDate.slice(0, -5);
     
     document.getElementById("update").textContent = "Senast uppdaterad: " + formattedDate;
-    document.getElementById("lektion").textContent = "Lektioner " + schemaaa.currentWeek + ":";
+    document.getElementById("lektion").textContent = "Lektioner v." + schemaaa.currentWeek + ":";
     });
     
 }
