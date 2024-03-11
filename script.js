@@ -171,7 +171,7 @@ function loadChoices() {
       console.log(data)
         console.log(data.currentWeek)
       schemaaa = data
-    document.getElementById("lektion").textContent = "Lektioner " + schemaaa.currentWeek + ":";
+    document.getElementById("lektion").textContent = "Lektioner huhbi " + schemaaa.currentWeek + ":";
     });
 }
 
