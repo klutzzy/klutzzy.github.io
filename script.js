@@ -271,6 +271,7 @@ function loadSchema(option) {
 function submitVisare() {
    let api = document.getElementById("apiTextArea").value
    api = api.slice(6, -2)
+    console.log(api)
    api = JSON.parse(api)
    let auth = api.headers.authorization
     console.log(auth)
