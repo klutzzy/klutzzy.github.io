@@ -278,6 +278,7 @@ function submitVisare() {
 
 
    api = JSON.parse(api)
+    console.log(api)
    let auth = api.headers.authorization
     console.log(auth)
 }
