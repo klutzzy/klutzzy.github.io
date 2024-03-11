@@ -171,8 +171,7 @@ function loadChoices() {
       console.log(data)
         console.log(data.currentWeek)
       schemaaa = data
-        
-      document.getElementById("lektion").innerText = "Lektioner " + data.currentWeek + ":";
+    document.getElementById("lektion").textContent = "Lektioner " + schemaaa.currentWeek + ":";
     });
 }
 
