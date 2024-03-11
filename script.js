@@ -210,7 +210,7 @@ function loadSchema(option) {
      itemList = document.getElementById("itemList5");
      itemList.innerHTML = "";
     console.log(schemaaa.schema)
-      const jsonData = JSON.parse(schemaaa.schema)
+      const jsonData = schemaaa.schema
     
 
       let lektioner = [];
