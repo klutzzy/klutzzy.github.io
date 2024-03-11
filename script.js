@@ -269,18 +269,26 @@ function loadSchema(option) {
 }
 
 function submitVisare() {
-   let api = document.getElementById("apiTextArea").value
-   api = api.slice(6, -2)
-    console.log(api)
+    let api = document.getElementById("apiTextArea").value
+    api = api.slice(6, -2)
+    api = "[" + api + "]";
+    api = JSON.parse(api)
+    let auth = api[1].headers.authorization
+
+    var url = new URL('https://classy-clever-package.glitch.me/schema')
+
+    var params = {api:auth}
     
- api = "[" + api + "]";
-
-
-
-   api = JSON.parse(api)
-    console.log(api)
-   let auth = api[1].headers.authorization
-    console.log(auth)
+    
+    url.search = new URLSearchParams(params).toString();
+    
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    });
+   
+    
 }
 
 
