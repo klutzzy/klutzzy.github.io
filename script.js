@@ -265,7 +265,7 @@ function loadSchema(option) {
     
 }
 
-function(submitVisare) {
+function submitVisare() {
    
 }
 
