@@ -155,7 +155,7 @@ function loadChoices() {
     .then(data => {
       console.log(data)
       schemaaa = data
-      document.getElementById("lektion").innerHTML = schema.currentWeek
+      document.getElementById("lektion").innerHTML = schemaaa.currentWeek
     });
   fetch(choicesFile)
     .then(response => response.json())
