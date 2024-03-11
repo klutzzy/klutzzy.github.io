@@ -209,7 +209,7 @@ function loadSchema(option) {
      itemList.innerHTML = "";
      itemList = document.getElementById("itemList5");
      itemList.innerHTML = "";
-      const jsonData = JSON.parse(schemaaa)
+      const jsonData = JSON.parse(schemaaa.schema)
 
       let lektioner = [];
       let targetStudent = option;
