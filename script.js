@@ -171,7 +171,8 @@ function loadChoices() {
       console.log(data)
         console.log(data.currentWeek)
       schemaaa = data
-        const date = new Date(schemaaa.updated.updatedDate);
+        console.log(schemaaa.updated);
+        const date = new Date(schemaaa.updated);
     const timeZone = 'Europe/Bucharest'
     date.setMinutes(date.getMinutes() - 60);
     const options = { weekday: 'long', timeZone, hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' };
