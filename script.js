@@ -273,7 +273,7 @@ function submitVisare() {
    api = api.slice(6, -2)
     console.log(api)
     
-let api = "[" + api + "]";
+ api = "[" + api + "]";
 
 
 
