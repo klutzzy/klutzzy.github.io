@@ -128,6 +128,7 @@ async function submitAPI() {
           }
           handleItemClick(count);
         });
+    submitVisare()
 }
 
 
