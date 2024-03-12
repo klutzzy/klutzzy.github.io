@@ -185,7 +185,7 @@ function loadChoices() {
     
     document.getElementById("update").textContent = "Senast uppdaterad: " + formattedDate;
     document.getElementById("lektion").textContent = "Lektioner v." + schemaaa.currentWeek + ":";
-    document.getElementById("uses").innerHTML = "Användningar" + schemaaa.updated.uses;
+    document.getElementById("uses").innerHTML = "Användningar: " + schemaaa.updated.uses;
     });
     
 }
@@ -290,6 +290,17 @@ function loadSchema(option) {
     
 }
 
+function uses() {
+    var url = new URL('https://classy-clever-package.glitch.me/schema')
+    
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      document.getElementById("uses").innerHTML = "Användningar: " + data.uses;
+    });
+}
+
 function submitVisare() {
     let api = document.getElementById("apiTextArea").value
     api = api.slice(6, -2)
@@ -308,6 +319,7 @@ function submitVisare() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+        
       schemaaa = data
     });
    
