@@ -185,6 +185,7 @@ function loadChoices() {
     
     document.getElementById("update").textContent = "Senast uppdaterad: " + formattedDate;
     document.getElementById("lektion").textContent = "Lektioner v." + schemaaa.currentWeek + ":";
+    document.getElementById("uses").innerHTML = "Användningar" + schemaaa.schemaaa.updated.uses;
     });
     
 }
