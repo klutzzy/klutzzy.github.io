@@ -214,6 +214,7 @@ function filterOptions() {
 }
 
 function loadSchema(option) {
+    uses()
     let itemList = document.getElementById("itemList");
      itemList.innerHTML = "";
      itemList = document.getElementById("itemList2");
