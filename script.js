@@ -259,27 +259,27 @@ function loadSchema(option) {
             itemList = document.getElementById("itemList");
             date = date.slice(7,-1)
             li.style.whiteSpace = 'nowrap';
-            li.textContent = `<strong>${date} ${ws}</strong> ${rum}`;
+            li.innerHTML = `<strong>${date} ${ws}</strong> ${rum}`;
           } else if(date.includes("Tuesday")) {
             itemList = document.getElementById("itemList2");
             date = date.slice(9,-1)
               li.style.whiteSpace = 'nowrap';
-            li.textContent = `<strong>${date} ${ws}</strong> ${rum}`;
+            li.innerHTML = `<strong>${date} ${ws}</strong> ${rum}`;
           } else if(date.includes("Wednesday")) {
             itemList = document.getElementById("itemList3");
             date = date.slice(11,-1)
               li.style.whiteSpace = 'nowrap';
-            li.textContent = `<strong>${date} ${ws}</strong> ${rum}`;
+            li.innerHTML = `<strong>${date} ${ws}</strong> ${rum}`;
           } else if(date.includes("Thursday")) {
             itemList = document.getElementById("itemList4");
             date = date.slice(10,-1)
               li.style.whiteSpace = 'nowrap';
-            li.textContent = `<strong>${date} ${ws}</strong> ${rum}`;
+            li.innerHTML = `<strong>${date} ${ws}</strong> ${rum}`;
           } else if(date.includes("Friday")) {
             itemList = document.getElementById("itemList5");
             date = date.slice(8,-1)
               li.style.whiteSpace = 'nowrap';
-            li.textContent = `<strong>${date} ${ws}</strong> ${rum}`;
+            li.innerHTML = `<strong>${date} ${ws}</strong> ${rum}`;
           }
 
 
