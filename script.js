@@ -291,7 +291,7 @@ function loadSchema(option) {
 }
 
 function uses() {
-    var url = new URL('https://classy-clever-package.glitch.me/schema')
+    var url = new URL('https://classy-clever-package.glitch.me/uses')
     
     fetch(url)
     .then(response => response.json())
