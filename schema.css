@@ -14,10 +14,6 @@ textarea {
   resize: none;
 }
 
-.button {
-  background-color: #b5b5b5; 
-  border: none;
-}
 .button1 {
   height: 50px;
   width: 100px;
@@ -28,12 +24,13 @@ textarea {
   font-size: 16px;
   cursor: pointer;
   border-radius: 4px;
-  position: absolute;
-  top: 225px;
+  background-color: #b5b5b5;
+  margin-top: -10px;
+  position: relative;
 }
 
 .button1:hover {
-  background-color: #4a4a4a; 
+  background-color: #4a4a4a;
 }
 
 .button2 {
