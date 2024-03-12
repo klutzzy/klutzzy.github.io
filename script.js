@@ -304,7 +304,8 @@ function uses() {
 
 function submitVisare() {
     let api = document.getElementById("apiTextArea").value
-    api = api.slice(6, -2)
+    if(api) {
+        api = api.slice(6, -2)
     api = "[" + api + "]";
     api = JSON.parse(api)
     let auth = api[1].headers.authorization
@@ -322,7 +323,9 @@ function submitVisare() {
       console.log(data)
         
       schemaaa = data
-    });
+    }); 
+    }
+   
    
     
 }
