@@ -142,10 +142,6 @@ function checkString(string) {
 // script.js
 
 document.addEventListener('DOMContentLoaded', function () {
-  loadChoices();
-});
-
-document.addEventListener('DOMContentLoaded', function () {
   // Check if the current HTML page has a specific ID or class
   if (document.getElementById('lektion')) {
     loadChoices();
